@@ -46,15 +46,8 @@ library(jsonlite)
 library(knitr)
 library(tidyverse)
 
-loadSprintData <- function(data_filepath) {
-  data = read.csv(data_filepath, header = TRUE, sep = ",")
-  data
-}
-
-
-myData <- loadSprintData("./data/data.csv")
-myData
-myData[3,]$Sprint
+myData <- read.csv("./data/data.csv", header = TRUE, sep = ",", strip.white=TRUE)
+myRef <- read.csv("./data/ref.csv", header = TRUE, sep = ",", strip.white=TRUE)
 
 updatedDf <- myData %>%
   pmap_dfr(function(...) {
@@ -67,6 +60,9 @@ updatedDf <- myData %>%
 })
 
 updatedDf
+
+enriched <- merge(myData, myRef, by.x="Reporter", by.y="username", all=T)
+enriched 
 
 
 ```
