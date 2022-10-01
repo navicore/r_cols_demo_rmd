@@ -65,8 +65,8 @@ enriched <- merge(updatedDf, myRef, by.x="Reporter", by.y="username", all.x=TRUE
 enriched$Reporter <- as.factor(enriched$Reporter)
 enriched$ActualSprint <- as.factor(enriched$ActualSprint)
 
-kable(summary(enriched))
-
+kable(summary(enriched)[,1:3])
+kable(enriched[c(1,8)])
 kable(enriched)
 
 
