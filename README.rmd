@@ -68,6 +68,7 @@ enriched$ActualSprint <- as.factor(enriched$ActualSprint)
 kable(summary(enriched)[,1:3])
 kable(enriched[c(1,8)])
 kable(enriched)
+kable(enriched[c(c(8),2,7)])
 
 
 ```
